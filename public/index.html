@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" ng-app="MeanFoodApp">
+  <head>
+    <meta charset="utf-8">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js" charset="utf-8"></script>
+    <script src="/js/app.js" charset="utf-8"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <title>A Mean Midnight Snack</title>
+  </head>
+  <body ng-controller="MainController as ctrl">
+    <div class="container">
+    {{ctrl.h5}}
+      <form ng-submit="ctrl.createSnack()">
+        <input type="text" name="ctrl.name" placeholder="food name">
+        <input type="submit" value="Eat a Snack">
+      </form>
+    {{ctrl.h5_2}}
+      <!-- <div ng-repeat="" class="section">
+
+      </div> -->
+
+    </div>
+  </body>
+</html>
