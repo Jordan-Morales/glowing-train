@@ -12,13 +12,14 @@
     <div class="container">
     {{ctrl.h5}}
       <form ng-submit="ctrl.createSnack()">
-        <input type="text" name="ctrl.name" placeholder="food name">
+        <input type="text" ng-model="ctrl.name" placeholder="food name">
+        <input type="text" ng-model="ctrl.flavor" placeholder="flavor">
         <input type="submit" value="Eat a Snack">
       </form>
     {{ctrl.h5_2}}
-      <!-- <div ng-repeat="" class="section">
-
-      </div> -->
+      <table ng-repeat="snack in ctrl.snacks" class="section">
+        <td> {{snack.name}} |&|  {{snack.flavor}}</td>
+      </table>
 
     </div>
   </body>

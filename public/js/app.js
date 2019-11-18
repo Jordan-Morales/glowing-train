@@ -11,12 +11,31 @@ app.controller('MainController', ['$http', function($http){
     $http({
       method: "POST",
       url: "/foods",
-      data: this.createForm
+      data: {
+        name: this.name,
+        flavor: this.flavor
+      }
     }).then(response => {
-      console.log(response);
+      this.getSnacks();
     }, error => {
       console.log(error);
     })
   }
 
+  this.getSnacks = () => {
+    $http({
+      method: "GET",
+      url: "/foods"
+    }).then(response => {
+      this.snacks = response.data
+    }, error => {
+      console.log(error);
+    })
+  }
+
+  // this.updateSnack = () => {
+  //   console.lo;
+  // }
+
+  this.getSnacks();
 }]);
