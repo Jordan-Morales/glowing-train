@@ -13,6 +13,9 @@ app.get('/', (req, res)=> {
 app.use(express.json()); //use .json not urlencoded
 app.use(express.static('public'));
 
+const foodsController = require('./controllers/foods.js');
+app.use('/foods', foodsController)
+
 
 mongoose.connect('mongodb://localhost:27017/meanfoods', { useNewUrlParser: true});
 mongoose.connection.once('open', ()=> {
