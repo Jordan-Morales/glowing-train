@@ -1,0 +1,23 @@
+{
+  "name": "glowing-train",
+  "version": "1.0.0",
+  "description": "Justin Warren",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Jordan-Morales/glowing-train.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Jordan-Morales/glowing-train/issues"
+  },
+  "homepage": "https://github.com/Jordan-Morales/glowing-train#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
