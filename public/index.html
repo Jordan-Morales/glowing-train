@@ -22,14 +22,18 @@
         <td ng-click="ctrl.openModal(snack)" > Edit </td>
         <td ng-click="ctrl.deleteSnack(snack)">x</td>
         <td>
-          <form ng-submit="ctrl.updateSnack(snack);">
-            <div class="row">
+          <a ng-if="$index !== ctrl.indexOfEditFormToShow"
+          href="#"
+          ng-click="ctrl.indexOfEditFormToShow = $index">
+          Edit Snack
+          </a>
+          <form ng-if="$index === ctrl.indexOfEditFormToShow"
+          ng-submit="ctrl.updateSnack(snack);">
               <input type="text"
-                ng-model="snack.updatedName" placeholder="name">
+                ng-model="ctrl.updatedName" placeholder="name">
               <input type="text"
-                ng-model="snack.updatedFlavor" placeholder="flavor">
+                ng-model="ctrl.updatedFlavor" placeholder="flavor">
               <input type="submit" value="Update Snack">
-            </div>
           </form>
         </td>
       </table>

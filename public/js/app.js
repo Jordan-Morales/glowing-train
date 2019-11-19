@@ -6,6 +6,8 @@ app.controller('MainController', ['$http', function($http){
   this.h5_2 = "Couldn't Help Myself:"
   this.createForm = {}
   this.snack = ''
+  this.indexOfEditFormToShow = null;
+
 
   //create a snack in the DB
   this.createSnack = () => {
@@ -38,8 +40,6 @@ app.controller('MainController', ['$http', function($http){
   // }
 
   this.updateSnack = (snack) => {
-    // snack = this.snack
-    console.log(snack);
     $http({
       method: "PUT",
       url: '/foods/' + snack._id,
@@ -50,6 +50,7 @@ app.controller('MainController', ['$http', function($http){
     }).then(response => {
       console.log(response.data);
       // this.openModal();
+      this.indexOfEditFormToShow = null;
       this.getSnacks();
     }, error => {
       console.log(error.message);
