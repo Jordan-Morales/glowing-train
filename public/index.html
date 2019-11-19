@@ -4,23 +4,49 @@
     <meta charset="utf-8">
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js" charset="utf-8"></script>
     <script src="/js/app.js" charset="utf-8"></script>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" href="/css/main.css">
     <title>A Mean Midnight Snack</title>
   </head>
   <body ng-controller="MainController as ctrl">
     <div class="container">
     {{ctrl.h5}}
       <form ng-submit="ctrl.createSnack()">
-        <input type="text" ng-model="ctrl.name" placeholder="food name">
-        <input type="text" ng-model="ctrl.flavor" placeholder="flavor">
+        <input type="text" ng-model="ctrl.createForm.name" placeholder="food name">
+        <input type="text" ng-model="ctrl.createForm.flavor" placeholder="flavor">
         <input type="submit" value="Eat a Snack">
       </form>
     {{ctrl.h5_2}}
       <table ng-repeat="snack in ctrl.snacks" class="section">
-        <td> {{snack.name}} |&|  {{snack.flavor}}</td>
+        <td ng-mouseover="ctrl.chooseOneSnack(snack)"> {{snack.name}} with a {{snack.flavor}} flavor.</td>
+        <td ng-click="ctrl.openModal(snack)" > Edit </td>
+        <td ng-click="ctrl.deleteSnack(snack)">x</td>
+        <td>
+          <form ng-submit="ctrl.updateSnack(snack);">
+            <div class="row">
+              <input type="text"
+                ng-model="snack.updatedName" placeholder="name">
+              <input type="text"
+                ng-model="snack.updatedFlavor" placeholder="flavor">
+              <input type="submit" value="Update Snack">
+            </div>
+          </form>
+        </td>
       </table>
-
+    <!-- <div id="modal" class="modal">
+      <form ng-submit="ctrl.updateSnack(snack);">
+        <div class="row">
+          <input type="text"
+            ng-model="snack.updatedName" placeholder="name">
+          <input type="text"
+            ng-model="snack.updatedFlavor" placeholder="flavor">
+          <input type="submit" value="Update Snack">
+          <button class="button"
+            ng-click="ctrl.openModal( snack )">Don't Delete
+          <button>
+        </div>
+      </form>
+    </div> -->
     </div>
   </body>
 </html>
