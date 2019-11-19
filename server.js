@@ -4,14 +4,13 @@ const mongoose = require('mongoose');
 const app = express();
 
 
-app.get('/', (req, res)=> {
-    res.send('Hello World!');
-})
-
 //Middleware
 //This needs to be above the routes.
 app.use(express.json()); //use .json not urlencoded
 app.use(express.static('public'));
+
+const foodsController = require('./controllers/foods.js');
+app.use('/foods', foodsController)
 
 
 mongoose.connect('mongodb://localhost:27017/meanfoods', { useNewUrlParser: true});
